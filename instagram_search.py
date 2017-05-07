@@ -125,7 +125,7 @@ class HashTagSearch(metaclass=ABCMeta):
         """
         resp = requests.head(self.instagram_root)
         cookie_string = "mid=%s; csrftoken=%s;" % (resp.cookies["mid"], resp.cookies['csrftoken'])
-        return resp.cookies['csrftoken'], resp.headers['set-cookie']
+        return resp.cookies['csrftoken'], cookie_string
 
     def get_next_results(self, tag, cursor):
         """
